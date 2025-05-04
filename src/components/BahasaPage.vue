@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <div>
+      <p>
+        {{ title }}:
+        <b v-bind:class="{ active: isactive }">{{ activeLanguage }}</b>
+      </p>
+    </div>
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
     <p>{{ $route.params.bahasaPage }}</p>
     <ol>
       <li v-for="(prg, index) in proglang" :key="index">{{ prg }}</li>
@@ -12,23 +19,34 @@ export default {
   name: "BahasaPage",
   data() {
     return {
+      title: "Bahasa Pemrograman yang Digunakan",
+      isactive: true,
+      activeColor: "green",
+      fontSize: 55,
+      activeLanguage: "Vue + TypeScript", // Bahasa aktif saat ini
       proglang: [
         "Java",
         "C++",
         "Python",
         "PHP",
         "JavaScript",
+        "Vue",
+        "React",
         "Ruby",
         "Swift",
-        "Go",
+        "TypeScript",
         "Rust",
         "Kotlin",
+        "dll...",
       ],
     };
   },
 };
 </script>
 <style scoped>
+.active {
+  background: rgb(54, 211, 62);
+}
 .container {
   width: 50%; /* Atur lebar container */
   margin: auto; /* Pusatkan container di tengah halaman */
@@ -46,19 +64,5 @@ ol {
 
 li {
   margin-left: 5px; /* Kurangi jarak antara angka dan teks */
-}
-
-.button-group {
-  margin-top: 10px; /* Tambahkan jarak atas untuk tombol */
-}
-
-button {
-  margin-right: 10px; /* Menambahkan jarak antar tombol */
-  background-color: rgb(72, 122, 80); /* Warna latar tombol */
-  color: rgb(17, 241, 65); /* Warna teks tombol */
-  border: none; /* Hilangkan border */
-  padding: 10px 15px; /* Padding dalam tombol */
-  border-radius: 5px; /* Membuat sudut tombol melengkung */
-  cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
 }
 </style>

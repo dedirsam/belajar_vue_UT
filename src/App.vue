@@ -1,11 +1,10 @@
 <template>
+  <img alt="Vue logo" src="./assets/logo.png" class="logo" />
+  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   <nav id="nav">
     <!-- <router-link to="/HomePage" class="nav-link">Home</router-link> -->
     <router-link :to="{ name: 'HomePage' }" class="nav-link">Home</router-link>
     <router-link to="/Aboutpage" class="nav-link">About</router-link>
-    <router-link to="/DetikBerjalan" class="nav-link"
-      >Detik Berjalan</router-link
-    >
     <router-link
       :to="{
         name: 'JurusanPage',
@@ -15,6 +14,9 @@
     >
       Jurusan
     </router-link>
+    <router-link to="/DetikBerjalan" class="nav-link"
+      >Detik Berjalan</router-link
+    >
     <router-link
       :to="{
         name: 'BahasaPage',
@@ -23,9 +25,24 @@
       class="nav-link"
       >Bahasa Pemrograman</router-link
     >
+    <router-link
+      :to="{
+        name: 'KondisionalPage',
+        params: { angka: 85, bagus: true },
+      }"
+      class="nav-link"
+      >Kondisional</router-link
+    >
+    <router-link
+      :to="{
+        name: 'EvenhandlerPage',
+        params: { evenhandlerPage: 'Event Handler' },
+      }"
+      class="nav-link"
+      >Even Handler</router-link
+    >
   </nav>
-  <img alt="Vue logo" src="./assets/logo.png" class="logo" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+
   <router-view />
 </template>
 
@@ -48,12 +65,15 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  margin-top: 0; /* Hapus margin atas */
+  padding-top: 0; /* Hapus padding atas */
 }
 
 .logo {
   width: 50px;
   height: auto;
+  margin-top: 0; /* Hapus margin atas pada logo */
 }
 
 #nav {
